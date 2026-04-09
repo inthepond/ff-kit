@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ff-kit"
+version = "0.1.0"
+description = "FFmpeg operations as LLM-callable tools — clip, merge, extract audio, add subtitles, transcode."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "Dekko", email = "dekko.etangs@outlook.com" }]
+keywords = ["ffmpeg", "llm", "tool-calling", "mcp", "agent", "video", "audio"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.scripts]
+ffkit = "ff_kit.cli:main"
+ffkit-mcp = "ff_kit.mcp.server:run_stdio"
+
+[project.urls]
+Homepage = "https://github.com/dekkoshi/ff-kit"
+Repository = "https://github.com/dekkoshi/ff-kit"
+Issues = "https://github.com/dekkoshi/ff-kit/issues"
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-mock>=3.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ff_kit"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
