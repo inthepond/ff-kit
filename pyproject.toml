@@ -30,9 +30,9 @@ ffkit = "ff_kit.cli:main"
 ffkit-mcp = "ff_kit.mcp.server:run_stdio"
 
 [project.urls]
-Homepage = "https://github.com/inthepond/ff-kit"
-Repository = "https://github.com/inthepond/ff-kit"
-Issues = "https://github.com/inthepond/ff-kit/issues"
+Homepage = "https://github.com/inthepond/ff-toolkit"
+Repository = "https://github.com/inthepond/ff-toolkit"
+Issues = "https://github.com/inthepond/ff-toolkit/issues"
 
 [project.optional-dependencies]
 dev = ["pytest>=7.0", "pytest-mock>=3.0"]

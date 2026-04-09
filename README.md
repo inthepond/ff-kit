@@ -1,13 +1,13 @@
-# ff-kit
+# ff-toolkit
 
 FFmpeg operations as LLM-callable tools.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/inthepond/ff-kit/main/docs/demo.svg" alt="ff-kit demo" width="720">
+  <img src="https://raw.githubusercontent.com/inthepond/ff-toolkit/main/docs/demo.svg" alt="ff-toolkit demo" width="720">
 </p>
 
 > **Stop hand-writing FFmpeg subprocess calls and JSON tool schemas.**
-> `ff-kit` gives you 5 production-ready media operations, dual-format LLM schemas (OpenAI + Anthropic), and an MCP server — all in one `pip install`.
+> `ff-toolkit` gives you 5 production-ready media operations, dual-format LLM schemas (OpenAI + Anthropic), and an MCP server — all in one `pip install`.
 
 ## Real-World Use Cases
 
@@ -103,7 +103,7 @@ Add to your config (`claude_desktop_config.json` or Cursor settings):
 ```json
 {
   "mcpServers": {
-    "ff-kit": {
+    "ff-toolkit": {
       "command": "ffkit-mcp",
       "args": []
     }
@@ -126,7 +126,7 @@ That's it. Claude can now clip, merge, extract audio, add subtitles, and transco
 ## How It Works
 
 ```
-Your Agent                    ff-kit                         FFmpeg
+Your Agent                    ff-toolkit                         FFmpeg
     │                           │                              │
     ├─ openai_tools() ──────────┤                              │
     │  or anthropic_tools()     │                              │
@@ -142,7 +142,7 @@ Your Agent                    ff-kit                         FFmpeg
 ## Project Structure
 
 ```
-ff-kit/
+ff-toolkit/
 ├── src/ff_kit/
 │   ├── __init__.py          # Public API: clip, merge, extract_audio, ...
 │   ├── cli.py               # CLI entry point (ffkit command)
@@ -170,8 +170,8 @@ ff-kit/
 ## Development
 
 ```bash
-git clone https://github.com/inthepond/ff-kit.git
-cd ff-kit
+git clone https://github.com/inthepond/ff-toolkit.git
+cd ff-toolkit
 pip install -e ".[dev]"
 pytest -v                    # 30 tests, runs in <1s
 ```
@@ -185,7 +185,7 @@ Yes, for actual media operations. Tests are fully mocked and don't need FFmpeg. 
 Yes — add a function in `core/`, register it in `dispatch.py`'s `_REGISTRY`, and add schema entries in `schemas/openai.py` and `schemas/anthropic.py`. See any existing operation as a template.
 
 **Q: Why not just use LangChain / CrewAI tools?**
-Those frameworks are great, but they're heavy dependencies. ff-kit is zero-dependency (beyond Python stdlib) and works with any LLM provider. You can use it inside LangChain if you want, or standalone.
+Those frameworks are great, but they're heavy dependencies. ff-toolkit is zero-dependency (beyond Python stdlib) and works with any LLM provider. You can use it inside LangChain if you want, or standalone.
 
 **Q: What about streaming / progress callbacks?**
 Not in v0.1. FFmpeg progress parsing is planned for v0.2.
