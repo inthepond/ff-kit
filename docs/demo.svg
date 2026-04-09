@@ -18,13 +18,13 @@
   <g opacity="0">
     <set attributeName="opacity" to="1" begin="0.5s" fill="freeze" />
     <text fill="#89b4fa" x="16" y="60">$</text>
-    <text fill="#cdd6f4" x="30" y="60">pip install ff-kit</text>
+    <text fill="#cdd6f4" x="30" y="60">pip install ff-toolkit</text>
   </g>
 
   <!-- Line 2: install success -->
   <g opacity="0">
     <set attributeName="opacity" to="1" begin="1.0s" fill="freeze" />
-    <text fill="#a6e3a1" x="16" y="80">Successfully installed ff-kit-0.1.0</text>
+    <text fill="#a6e3a1" x="16" y="80">Successfully installed ff-toolkit-0.1.0</text>
   </g>
 
   <!-- Line 3: comment -->

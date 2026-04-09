@@ -23,7 +23,7 @@ FFmpeg operations as LLM-callable tools.
 
 ```bash
 # Install (requires FFmpeg on PATH)
-pip install ff-kit
+pip install ff-toolkit
 
 # Verify it works — no API keys needed
 ffkit probe some_video.mp4

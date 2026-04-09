@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "ff-kit"
+name = "ff-toolkit"
 version = "0.1.0"
 description = "FFmpeg operations as LLM-callable tools — clip, merge, extract audio, add subtitles, transcode."
 readme = "README.md"
