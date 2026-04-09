@@ -3,7 +3,7 @@
 FFmpeg operations as LLM-callable tools.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/dekkoshi/ff-kit/main/docs/demo.svg" alt="ff-kit demo" width="720">
+  <img src="https://raw.githubusercontent.com/inthepond/ff-kit/main/docs/demo.svg" alt="ff-kit demo" width="720">
 </p>
 
 > **Stop hand-writing FFmpeg subprocess calls and JSON tool schemas.**
@@ -170,7 +170,7 @@ ff-kit/
 ## Development
 
 ```bash
-git clone https://github.com/dekkoshi/ff-kit.git
+git clone https://github.com/inthepond/ff-kit.git
 cd ff-kit
 pip install -e ".[dev]"
 pytest -v                    # 30 tests, runs in <1s
