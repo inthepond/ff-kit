@@ -1,0 +1,5 @@
+# Bundle patch applied when this package is installed via `dsh plugin add`.
+# Config keys and defaults: see Config in src/index.ts (or lib/index.d.ts).
+- insert:
+    - id: ffkit
+      name: dsh-ffkit

@@ -16,3 +16,9 @@ env/
 *.so
 .DS_Store
 Thumbs.db
+
+# Node (integrations/deepseek-harness)
+node_modules/
+integrations/deepseek-harness/lib/
+integrations/deepseek-harness/lib-test/
+*.tgz

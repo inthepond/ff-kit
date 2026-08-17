@@ -17,6 +17,8 @@ FFmpeg operations as LLM-callable tools.
 
 **"I want FFmpeg tools in Claude Desktop / Cursor"** — Add the MCP server config (3 lines of JSON) and Claude can edit your videos directly.
 
+**"I want FFmpeg tools in DeepSeek Harness"** — `dsh plugin add dsh-ffkit` installs the native plugin from [integrations/deepseek-harness](integrations/deepseek-harness/).
+
 **"I'm tired of writing the same FFmpeg commands"** — Use the CLI: `ffkit clip input.mp4 output.mp4 --start 00:01:00 --duration 30`
 
 ## 60-Second Quick Start
@@ -113,6 +115,17 @@ Add to your config (`claude_desktop_config.json` or Cursor settings):
 
 That's it. Claude can now clip, merge, extract audio, add subtitles, and transcode your files.
 
+### As a DeepSeek Harness plugin
+
+[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (dsh) is DeepSeek's plugin-based agent runtime. ff-toolkit ships a native dsh plugin — the `dsh-ffkit` npm package in [integrations/deepseek-harness](integrations/deepseek-harness/):
+
+```sh
+pip install ff-toolkit                      # the Python side (this package)
+dsh plugin --profile <name> add dsh-ffkit   # the harness side
+```
+
+The plugin registers all five operations as typed harness tools with structured canonical outputs (usable from dsh Code Mode) and UI cards. Under the hood each call runs `python -m ff_kit.bridge`, a one-shot JSON entry point over stdin/stdout that any host runtime can reuse. See the [plugin README](integrations/deepseek-harness/README.md) for configuration.
+
 ## Operations
 
 | Tool | What it does | Example |
@@ -148,6 +161,7 @@ ff-toolkit/
 │   ├── cli.py               # CLI entry point (ffkit command)
 │   ├── executor.py          # FFmpeg subprocess runner + probe
 │   ├── dispatch.py          # Tool name → function router
+│   ├── bridge.py            # One-shot JSON bridge (stdin/stdout) for host runtimes
 │   ├── core/                # One module per operation
 │   │   ├── clip.py
 │   │   ├── merge.py
@@ -164,7 +178,9 @@ ff-toolkit/
 │   ├── openai_example.py
 │   ├── anthropic_example.py
 │   └── agent_loop_example.py
-└── tests/                   # 30 tests, all mocked (no FFmpeg needed)
+├── tests/                   # 49 tests, all mocked (no FFmpeg needed)
+└── integrations/
+    └── deepseek-harness/    # dsh-ffkit npm package (DeepSeek Harness plugin)
 ```
 
 ## Development
@@ -173,7 +189,7 @@ ff-toolkit/
 git clone https://github.com/inthepond/ff-toolkit.git
 cd ff-toolkit
 pip install -e ".[dev]"
-pytest -v                    # 30 tests, runs in <1s
+pytest -v                    # 49 tests, runs in <1s
 ```
 
 ## FAQ

@@ -1,0 +1,59 @@
+{
+  "name": "dsh-ffkit",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness plugin exposing ff-toolkit FFmpeg tools (clip, merge, extract audio, subtitles, transcode)",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "ffmpeg",
+    "ff-toolkit",
+    "agent",
+    "video",
+    "audio"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inthepond/ff-toolkit.git",
+    "directory": "integrations/deepseek-harness"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "npm run build && tsc -p tsconfig.test.json && node --test lib-test/index.test.js",
+    "prepare": "npm run build"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-tools": "^0.1.0-rc.6"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-tools": "0.1.0-rc.6",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.7.0"
+  }
+}

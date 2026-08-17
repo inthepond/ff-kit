@@ -28,6 +28,7 @@ classifiers = [
 [project.scripts]
 ffkit = "ff_kit.cli:main"
 ffkit-mcp = "ff_kit.mcp.server:run_stdio"
+ffkit-bridge = "ff_kit.bridge:main"
 
 [project.urls]
 Homepage = "https://github.com/inthepond/ff-toolkit"
